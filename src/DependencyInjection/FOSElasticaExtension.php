@@ -165,6 +165,7 @@ class FOSElasticaExtension extends Extension
             }
 
             $clientDef = new ChildDefinition('fos_elastica.client_prototype');
+            $clientConfig['hosts'] = [$clientConfig['connections'][0]['host'] . ':' . $clientConfig['connections'][0]['port']];
             $clientDef->replaceArgument(0, $clientConfig);
 
             $logger = $clientConfig['connections'][0]['logger'];
